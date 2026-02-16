@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>💖 A Special Love Message 💖</title>
+<style>
+    body {
+        background: linear-gradient(to right, #ff9a9e, #fad0c4);
+        font-family: 'Comic Sans MS', cursive, sans-serif;
+        text-align: center;
+        overflow: hidden;
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+    }
+    h1 {
+        font-size: 3em;
+        text-shadow: 2px 2px 8px #ff69b4;
+        margin-bottom: 20px;
+        animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+    }
+    button {
+        background: #ff6eb4;
+        border: none;
+        padding: 15px 30px;
+        font-size: 1.2em;
+        border-radius: 12px;
+        cursor: pointer;
+        color: white;
+        box-shadow: 2px 2px 10px #ff69b4;
+        transition: transform 0.2s;
+    }
+    button:hover {
+        transform: scale(1.1);
+    }
+    .heart {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        background: red;
+        transform: rotate(-45deg);
+        animation: float 5s linear infinite;
+    }
+    .heart::before,
+    .heart::after {
+        content: "";
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        background: red;
+        border-radius: 50%;
+    }
+    .heart::before { top: -15px; left: 0; }
+    .heart::after { left: 15px; top: 0; }
+    @keyframes float {
+        0% { transform: translateY(0) rotate(-45deg); opacity: 1; }
+        100% { transform: translateY(-600px) rotate(-45deg); opacity: 0; }
+    }
+</style>
+</head>
+<body>
+
+<h1 id="loveMessage">💖 baby tala thichha tah 💖</h1>
+<button onclick="showLove()">Here Astha</button>
+
+<script>
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.style.left = Math.random() * window.innerWidth + "px";
+    heart.style.animationDuration = 3 + Math.random() * 2 + "s";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 5000);
+}
+
+function showLove() {
+    const x = prompt("Enter your name:");
+    const y = prompt("Enter your Husband name:");
+    
+    if ((x.toLowerCase() === "astha") && (y.toLowerCase() === "jeesal")) {
+        document.getElementById("loveMessage").innerText =
+        "Meroooo sanuuu ❤️ I loveeeee youuu and only youuu soooo much!!! 😘";
+        for (let i = 0; i < 50; i++) {
+            setTimeout(createHeart, i * 100);
+        }
+        // Make hearts continuously appear
+        setInterval(createHeart, 500);
+    } else {
+        document.getElementById("loveMessage").innerText = "You are not my baby 😢";
+    }
+}
+</script>
+
+</body>
+</html>
